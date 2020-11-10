@@ -1,8 +1,16 @@
 import random
+import sys
 
 wordLenMin = 5
 wordLenMax = 10
-badWords = ["ass", "poop", "fucking", "asshole"]		
+badWords = ["ass", "poop", "fucking", "asshole"]
+
+
+if len(sys.argv) == 2:
+	wordLenMin = int(sys.argv[1])
+elif len(sys.argv) > 2:
+	wordLenMin = int(sys.argv[1])
+	wordLenMax = int(sys.argv[2])		
 
 def get_words():
 	wordList = []
@@ -35,4 +43,7 @@ random.shuffle(words)
 selection = words[0:4]
 sep = '-'
 print(sep.join(selection))
+
+#print("minimum word length is: " + str(wordLenMin))
+#print("max word length is: " + str(wordLenMax))
 
